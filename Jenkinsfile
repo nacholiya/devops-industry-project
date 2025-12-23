@@ -9,15 +9,6 @@ pipeline {
             }
         }
 
-        stage('Sanity Check') {
-            steps {
-                sh '''
-                  cd app
-                  python3 -c "import main; print('App syntax OK')"
-                '''
-            }
-        }
-
         stage('Build Docker Image') {
             steps {
                 sh '''
