@@ -9,20 +9,11 @@ pipeline {
             }
         }
 
-        stage('Install Dependencies') {
+        stage('Sanity Check') {
             steps {
                 sh '''
                   cd app
-                  pip install -r requirements.txt
-                '''
-            }
-        }
-
-        stage('Test') {
-            steps {
-                sh '''
-                  cd app
-                  python -c "import main; print('App loaded')"
+                  python3 -c "import main; print('App syntax OK')"
                 '''
             }
         }
